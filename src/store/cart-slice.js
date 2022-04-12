@@ -34,7 +34,9 @@ export const cartSlice = createSlice({
              
         },
         updateCartFromServer(state,action){
-           state.itemList = action.payload
+           state.itemList = action.payload.itemList
+           state.totalQuantity = action.payload.totalQuantity
+          
         },
         setShowCart(state){
             state.showCart = !state.showCart
@@ -58,8 +60,8 @@ export const fetchCart = () => {
     return function(dispatch) {
         axios.get('https://reduxpractice-7e917-default-rtdb.europe-west1.firebasedatabase.app/cartitems.json')
             .then((res) => {
-           const data = res.data.itemList
-           if(data){
+           const data = res.data
+           if(data.itemList){
                dispatch(cartActions.updateCartFromServer(data))
            }
             })
