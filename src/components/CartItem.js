@@ -21,7 +21,7 @@ const CartItem = ({ name, quantity, total, price, id }) => {
       })
     );
   };
-  console.log(total)
+ 
   return (
     <div className="cartItem">
       <h2> {name}</h2>
