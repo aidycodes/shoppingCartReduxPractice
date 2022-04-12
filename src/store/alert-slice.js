@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const alertSlice = createSlice({
     name:'alert',
-    initialState:{type:'',message:''},
+    initialState:{type:'success',message:'default message'},
     reducers:{
         showSuccess(state,action){
             state.type = 'success'

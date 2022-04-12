@@ -18,7 +18,7 @@ function App() {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
 
     const alertData = useSelector(state => state.alert)
-    console.log(cart)
+    
 
     useEffect(() => {
       dispatch(fetchCart())
@@ -27,17 +27,17 @@ function App() {
   useEffect(() => {
     if(!firstLoad){
     dispatch(sendCartData()) 
-    console.log('we got here wtf')
+    
   } else {
    firstLoad = false
   }
-    console.log('how many times', firstLoad)
+
   },[cart, dispatch])
 
 
   return (
     <div className="App"> 
-    <AlertMsg type={alertData.type} msg={alertData.message}/> 
+    <AlertMsg type={alertData.type} msg={alertData.message} cart={cart}/> 
       {!isLoggedIn ?
       <Auth /> :
        <Layout /> }
